@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+import v1 from './v1'
+import v2 from './v2'
+import shopping from './shopping'
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-module.exports = router;
+export default (app) => {
+
+  app.use('/v1', v1)
+  app.use('/v2', v2)
+  app.use('/shopping', shopping)
+
+}
